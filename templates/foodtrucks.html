@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Trucks</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Food Trucks</h1>
+    <table id="foodtrucks-table">
+        <thead>
+            <tr>
+                <th>Applicant</th>
+                <th>Facility Type</th>
+                <th>Food Items</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for truck in foodtrucks %}
+            <tr>
+                <td>{{ truck.Applicant }}</td>
+                <td>{{ truck.FacilityType }}</td>
+                <td>{{ truck.FoodItems }}</td>
+                <td>{{ truck.Address }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#foodtrucks-table').DataTable();
+        });
+    </script>
+</body>
+</html>
